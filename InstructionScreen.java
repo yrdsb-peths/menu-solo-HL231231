@@ -6,6 +6,8 @@ public class InstructionScreen extends World
     Label Screen;
     Stack<String> nextScreen;
     Stack<String> backScreen;
+    Button next;
+    Label nextOverlay;
     
     public InstructionScreen()
     {    
@@ -20,12 +22,18 @@ public class InstructionScreen extends World
         Screen = new Label(nextScreen.peek(), 100);
         Screen.setFillColor(Color.BLACK);
         addObject(Screen, 300, 200);
-        Button next = new Button(false);
-        addObject(next, 100, 350);
-        Button back = new Button(true);
-        addObject(back, 500, 350);
+        Button back = new Button(false);
+        addObject(back, 100, 350);
+        next = new Button(true);
+        addObject(next, 500, 350);
+        Label backOverlay = new Label("Back", 50);
+        backOverlay.setFillColor(Color.WHITE);
+        addObject(backOverlay, 100, 350);
+        nextOverlay = new Label("Next", 50);
+        nextOverlay.setFillColor(Color.WHITE);
+        addObject(nextOverlay, 500, 350);
     }
-
+    
     public void updateScreen()
     {
           Screen.setValue(nextScreen.peek());

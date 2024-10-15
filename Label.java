@@ -29,6 +29,15 @@ public class Label extends Actor
         this(Integer.toString(value), fontSize);
     }
     
+    public void act()
+    {
+        if(Greenfoot.mouseClicked(this) && fillColor.equals(Color.WHITE))
+        {
+            Button button = (Button) getOneIntersectingObject(Button.class);
+            button.clickObject();
+        }
+    }
+    
     /**
      * Create a new label, initialise it with the needed text and the font size 
      */
