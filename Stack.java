@@ -1,5 +1,5 @@
 public class Stack<Type>{
-    private Node first;
+    private Node first = null;
 
     private class Node
     {
@@ -10,6 +10,11 @@ public class Stack<Type>{
     public boolean isEmpty() 
     {
       return first == null;
+    }
+
+    public boolean isNextEmpty()
+    {
+      return first.next == null;
     }
 
     public void push(Type item) {
