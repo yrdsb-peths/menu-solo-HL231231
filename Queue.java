@@ -19,4 +19,9 @@ public class Queue<Type>{
         if (isEmpty())  first = last;
         return item;
     }
+
+    public Type checkFirst()
+    {
+        return first.item;
+    }
 }

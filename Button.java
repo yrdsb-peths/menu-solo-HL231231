@@ -68,7 +68,8 @@ public class Button extends Actor
         }
         else
         {
-            
+            MenuScreen menu = (MenuScreen) getWorld();
+            menu.avatar.Faces.enqueue(menu.avatar.Faces.dequeue());
         }
     }
 }
