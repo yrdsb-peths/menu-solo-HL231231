@@ -1,5 +1,4 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
 public class Button extends Actor
 {
     public boolean isNext;
@@ -31,7 +30,7 @@ public class Button extends Actor
             {
                 if(getWorld().getClass() != InstructionScreen.class)
                 {
-                    InstructionScreen instructions = new InstructionScreen();
+                    InstructionScreen instructions = new InstructionScreen(1);
                     Greenfoot.setWorld(instructions);
                 }
                 else
@@ -41,28 +40,37 @@ public class Button extends Actor
                     {
                         instructionWorld.backScreen.push(instructionWorld.nextScreen.pop());
                         instructionWorld.updateScreen();
+                    }
+                    else
+                    {
                         if(instructionWorld.nextScreen.isNextEmpty())
                         {
-                            instructionWorld.removeObject(instructionWorld.next);
-                            instructionWorld.removeObject(instructionWorld.nextOverlay);
+                            HighScoreScreen HighScoreWorld = new HighScoreScreen();
+                            Greenfoot.setWorld(HighScoreWorld);
                         }
                     }
                 }
             }
             else
             {
-                InstructionScreen instructionWorld = (InstructionScreen) getWorld();
-                if(instructionWorld.backScreen.isEmpty())
+                if(getWorld().getClass() == InstructionScreen.class)
                 {
-                    MenuScreen menu = new MenuScreen();
-                    Greenfoot.setWorld(menu);
+                    InstructionScreen instructionWorld = (InstructionScreen) getWorld();
+                    if(instructionWorld.backScreen.isEmpty())
+                    {
+                        MenuScreen menu = new MenuScreen();
+                        Greenfoot.setWorld(menu);
+                    }
+                    else
+                    {
+                        instructionWorld.nextScreen.push(instructionWorld.backScreen.pop());
+                        instructionWorld.updateScreen();
+                    }
                 }
                 else
                 {
-                    instructionWorld.nextScreen.push(instructionWorld.backScreen.pop());
-                    instructionWorld.updateScreen();
-                    instructionWorld.addObject(instructionWorld.next, 500, 350);
-                    instructionWorld.addObject(instructionWorld.nextOverlay, 500, 350);
+                    InstructionScreen instructions = new InstructionScreen(5);
+                    Greenfoot.setWorld(instructions);
                 }
             }
         }

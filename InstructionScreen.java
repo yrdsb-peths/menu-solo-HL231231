@@ -9,13 +9,17 @@ public class InstructionScreen extends World
     Button next;
     Label nextOverlay;
     
-    public InstructionScreen()
+    public InstructionScreen(int startAt)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         nextScreen = new Stack<String>();
         backScreen = new Stack<String>();
-        for(int i = 5; i >= 1; i--)
+        for(int i = 1; i < startAt; i++)
+        {
+            backScreen.push("Screen " + i);
+        }
+        for(int i = 5; i >= startAt; i--)
         {
             nextScreen.push("Screen " + i);
         }
