@@ -3,18 +3,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class InstructionScreen extends World
 {
+    //Varaibles that are used by other classes so they are placed here to be accesible.
     Label Screen;
     Stack<String> nextScreen;
     Stack<String> backScreen;
     Button next;
     Label nextOverlay;
     
+    /**
+     * Creates a world that contains the instructions. Depending on the value of start at, it will start at that page.
+     */
     public InstructionScreen(int startAt)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         nextScreen = new Stack<String>();
         backScreen = new Stack<String>();
+        //Uses stacks to contain the screens.
         for(int i = 1; i < startAt; i++)
         {
             backScreen.push("Screen " + i);
@@ -38,6 +43,9 @@ public class InstructionScreen extends World
         addObject(nextOverlay, 500, 350);
     }
     
+    /**
+     * When the screen changes, it will update and change the text.
+     */
     public void updateScreen()
     {
           Screen.setValue(nextScreen.peek());

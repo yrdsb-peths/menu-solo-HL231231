@@ -2,8 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class MenuScreen extends World
 {
+    //Variable that will need to be accesible by other classes
     Avatar avatar;
     
+    /**
+     * Creates the starting screen which is also the menu. Holds an avatar selection part as well.
+     */
     public MenuScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

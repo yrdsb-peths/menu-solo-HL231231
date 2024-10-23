@@ -4,9 +4,11 @@ import java.util.Map;
 
 public class HighScoreScreen extends World
 {
+    /**
+     * Creates the high score world.
+     */
     public HighScoreScreen()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
         Button back = new Button(false);
         addObject(back, 100, 50);
@@ -20,6 +22,7 @@ public class HighScoreScreen extends World
         scoresHolder.put("Daniel", 5520);
         scoresHolder.put("Samantha", 2510);
         scoresHolder.put("John", 10240);
+        //Creates an ordered list from highest score to lowest score.
         int scoreOffset =  40;
         while(!scoresHolder.isEmpty())
         {

@@ -29,12 +29,18 @@ public class Label extends Actor
         this(Integer.toString(value), fontSize);
     }
     
+    /**
+     * Label is overlayed over the button, in order for it to not block the user from clicking the button, 
+     * it will get the button that is it overlayed with and activate it when it is clicked.
+     */
     public void act()
     {
+        //Checks if mouse is clicked
         if(Greenfoot.mouseClicked(this) && fillColor.equals(Color.WHITE))
         {
+            //Gets the button that is it intersecting with and activates the button.
             Button button = (Button) getOneIntersectingObject(Button.class);
-            button.clickObject();
+            button.changeScreen();
         }
     }
     

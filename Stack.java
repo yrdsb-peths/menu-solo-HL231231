@@ -1,22 +1,35 @@
 public class Stack<Type>{
+    //Node variable
     private Node first = null;
-
+    
+    /**
+     * Creates an instance of Node.
+     */
     private class Node
     {
        private Type item;
        private Node next;
     }
 
+    /**
+     * Checks if the stack is empty.
+     */
     public boolean isEmpty() 
     {
       return first == null;
     }
 
+    /**
+     * Checks if there is a second object int he stack.
+     */
     public boolean isNextEmpty()
     {
       return first.next == null;
     }
 
+    /**
+     * Creates a node and places it at the top of the stack.
+     */
     public void push(Type item) {
       if(first != null)
       {
@@ -32,6 +45,9 @@ public class Stack<Type>{
       }
     }
 
+    /**
+     * Removes the first on the stack and returns the value.
+     */
     public Type pop() {
       if(first.next != null && first != null)
       {
@@ -51,6 +67,9 @@ public class Stack<Type>{
       }
     }
     
+    /**
+     * Checks the first item on the stack.
+     */
     public Type peek() {
        return first.item;
     }
